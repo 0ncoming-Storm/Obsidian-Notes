@@ -1,0 +1,807 @@
+:root {
+  /* Use Obsidian spacing variables for consistency */
+  --memochron-padding-xs: var(--size-4-1, 0.25rem);
+  --memochron-padding-sm: var(--size-4-2, 0.5rem);
+  --memochron-padding-md: var(--size-4-3, 0.75rem);
+  --memochron-padding-lg: var(--size-4-4, 1rem);
+  --memochron-gap: var(--size-4-2, 0.5rem);
+
+  /* Calendar styling variables */
+  --color-text-day: var(--text-normal);
+  --color-text-today: var(--interactive-accent);
+
+  /* Fallback for missing theme variables - use hex to avoid CSS variable loops */
+  --text-on-accent: var(--text-on-accent, #ffffff);
+}
+
+/* Main Container */
+.workspace-leaf-content[data-type="memochron-calendar"] .view-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Controls */
+.memochron-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--memochron-padding-sm);
+  padding: var(--memochron-padding-sm);
+}
+
+.memochron-nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.memochron-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--memochron-gap);
+}
+
+.memochron-nav-link {
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 0.9em;
+  padding: var(--memochron-padding-xs) var(--memochron-padding-sm);
+  border-radius: var(--radius-s);
+  transition: color 0.1s ease, background-color 0.1s ease;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.memochron-nav-link:hover,
+.memochron-nav-link:focus {
+  color: var(--text-normal);
+  background-color: var(--background-modifier-hover);
+  outline: 2px solid var(--interactive-accent);
+  outline-offset: 1px;
+}
+
+.memochron-title {
+  font-size: 0.9em;
+  color: var(--text-normal);
+  font-weight: 500;
+  margin: 0 var(--memochron-padding-sm);
+}
+
+/* Month View */
+.memochron-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  font-size: 0.85em;
+}
+
+.memochron-weekday {
+  padding: var(--memochron-padding-xs);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95em;
+}
+
+.memochron-day {
+  min-height: 2rem;
+  padding: var(--memochron-padding-xs);
+  position: relative;
+  cursor: pointer;
+  border-radius: var(--radius-s);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+  transition: background-color 0.1s ease-in, color 0.1s ease-in;
+}
+
+.memochron-day:hover,
+.memochron-day:focus {
+  background-color: var(--interactive-hover);
+  outline: none;
+}
+
+.memochron-day.empty {
+  background: none;
+  cursor: default;
+}
+
+.memochron-day.selected {
+  background-color: var(--interactive-accent);
+  box-shadow: inset 0 0 0 1px var(--background-modifier-border);
+}
+
+/* Important: Always ensure text is visible on selected days */
+.memochron-day.selected .memochron-day-header {
+  color: var(
+    --text-on-accent
+  ) !important; /* Use !important to override any theme styles */
+  font-weight: 600;
+}
+
+.memochron-day.selected .memochron-event-dot {
+  color: var(--text-on-accent);
+}
+
+.memochron-day.today {
+  border: 1px solid var(--interactive-accent);
+}
+
+.memochron-day.today .memochron-day-header {
+  color: var(--color-text-today);
+}
+
+.memochron-day-header {
+  font-size: 1em;
+  color: var(--text-muted);
+  transition: color 0.1s ease-in;
+}
+
+.memochron-day.has-events .memochron-day-header {
+  color: var(--color-text-day);
+}
+
+.memochron-event-dot {
+  color: var(--interactive-accent);
+  font-size: 1.2em;
+  line-height: 1;
+  height: 8px;
+  margin-bottom: 4px;
+}
+
+/* Colored dots container */
+.memochron-event-dots-container {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2px;
+}
+
+.memochron-event-dot.colored {
+  font-size: 1em;
+  height: auto;
+  margin-bottom: 0;
+}
+
+/* Daily note dot styling */
+.memochron-event-dot.daily-note-dot {
+  font-weight: bold;
+  position: relative;
+}
+
+/* Make daily note dot slightly larger when it's the only dot */
+.memochron-event-dots-container:has(.daily-note-dot):not(
+    :has(.memochron-event-dot:not(.daily-note-dot))
+  )
+  .daily-note-dot {
+  font-size: 1.2em;
+}
+
+/* Week View */
+.memochron-week-grid {
+  display: grid;
+  grid-template-columns: 60px repeat(7, 1fr);
+  gap: 1px;
+  background: var(--background-modifier-border);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.memochron-week-header {
+  display: contents;
+}
+
+.memochron-week-day {
+  background: var(--background-secondary);
+  padding: var(--memochron-padding-sm);
+  text-align: center;
+  font-weight: bold;
+  grid-column: span 1;
+}
+
+.memochron-week-row {
+  display: contents;
+}
+
+.memochron-week-time {
+  background: var(--background-secondary);
+  padding: var(--memochron-padding-sm);
+  text-align: right;
+  font-size: 0.8em;
+}
+
+.memochron-week-cell {
+  background: var(--background-primary);
+  min-height: 40px;
+  padding: var(--memochron-padding-xs);
+  border-left: 1px solid var(--background-modifier-border);
+}
+
+.memochron-week-event {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: var(--memochron-padding-xs);
+  margin: 0.125rem 0;
+  border-radius: var(--radius-s);
+  font-size: 0.9em;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border: 1px solid var(--background-modifier-border);
+}
+
+/* Calendar Container */
+.memochron-calendar {
+  padding: var(--memochron-padding-sm);
+}
+
+/* Agenda View */
+.memochron-agenda {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--memochron-padding-sm);
+  border-top: 1px solid var(--background-modifier-border);
+  position: relative;
+}
+
+/* Drag and Drop Styles */
+.memochron-agenda.drag-over {
+  background-color: var(--background-modifier-hover);
+  border: 2px dashed var(--interactive-accent);
+}
+
+.memochron-agenda.drag-over::after {
+  content: "Drop ICS file here to create a note";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: var(--text-muted);
+  pointer-events: none;
+  background-color: var(--background-primary);
+  padding: var(--memochron-padding-md);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+}
+
+/* When calendar is hidden */
+.memochron-agenda.agenda-only {
+  border-top: none;
+}
+
+.memochron-controls.calendar-hidden {
+  display: none;
+}
+
+.memochron-agenda h3 {
+  margin: 0 0 var(--memochron-padding-lg);
+  font-size: 0.9em;
+  color: var(--text-muted);
+  position: sticky;
+  top: 0;
+  background: var(--background-primary);
+  padding: var(--memochron-padding-sm) 0;
+  z-index: 1;
+}
+
+.memochron-agenda-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--memochron-gap);
+  padding-bottom: var(--memochron-padding-lg);
+}
+
+.memochron-agenda-event {
+  padding: var(--memochron-padding-sm);
+  background: var(--background-secondary);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  font-size: 0.9em;
+  position: relative;
+  overflow: hidden;
+}
+
+.memochron-agenda-event:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Colored left border for events */
+.memochron-agenda-event.with-color {
+  padding-left: calc(var(--memochron-padding-sm) + 4px);
+}
+
+.memochron-agenda-event.with-color::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--event-color);
+  border-radius: var(--radius-s) 0 0 var(--radius-s);
+}
+
+/* Grey out past events in agenda view */
+.memochron-agenda-event.past-event {
+  opacity: 0.8;
+  color: var(--text-muted);
+}
+
+/* Daily note entry styling */
+.memochron-agenda-event.memochron-daily-note {
+  /* Keep the same background as regular events */
+}
+
+/* Color picker styles */
+.memochron-color-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 24px !important;
+}
+
+.memochron-color-button::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--selected-color);
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+/* Visual color picker styles */
+.memochron-color-picker-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-4);
+  margin: var(--size-4-4) 0;
+}
+
+.memochron-spectrum-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+  align-items: center;
+}
+
+.memochron-color-spectrum {
+  border: 2px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  cursor: crosshair;
+  display: block;
+}
+
+.memochron-lightness-bar {
+  border: 2px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  display: block;
+  width: 100%;
+}
+
+.memochron-input-row {
+  display: flex;
+  gap: var(--size-4-3);
+  align-items: center;
+  justify-content: center;
+}
+
+.memochron-color-preview-small {
+  width: 60px;
+  height: 40px;
+  border: 2px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  flex-shrink: 0;
+}
+
+.memochron-hex-input {
+  flex: 1;
+  max-width: 150px;
+  padding: var(--size-4-2) var(--size-4-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: var(--font-monospace);
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.memochron-hex-input:focus {
+  border-color: var(--interactive-accent);
+  outline: none;
+}
+
+.memochron-color-presets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-2);
+}
+
+.memochron-presets-label {
+  font-size: 0.9em;
+  color: var(--text-muted);
+}
+
+.memochron-presets-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: var(--size-4-2);
+}
+
+.memochron-color-preset {
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.memochron-color-preset:hover {
+  transform: scale(1.1);
+  border-color: var(--interactive-accent);
+}
+
+.memochron-color-buttons {
+  display: flex;
+  gap: var(--size-4-2);
+  justify-content: flex-end;
+  margin-top: var(--size-4-4);
+}
+
+/* Enhanced color picker styles */
+.memochron-enhanced-color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-4-4);
+  margin: var(--size-4-4) 0;
+  min-width: 320px;
+}
+
+.memochron-base-colors-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--size-4-2);
+  margin-bottom: var(--size-4-4);
+}
+
+.memochron-base-color-swatch {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-s);
+  border: 2px solid var(--background-modifier-border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.memochron-base-color-swatch:hover {
+  transform: scale(1.1);
+  border-color: var(--interactive-accent);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.memochron-custom-color-button {
+  padding: var(--size-4-3) var(--size-4-4);
+  border: 1px solid var(--interactive-accent);
+  border-radius: var(--radius-s);
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.memochron-custom-color-button:hover {
+  background: var(--interactive-accent-hover);
+  border-color: var(--interactive-accent-hover);
+}
+
+.memochron-back-button {
+  align-self: flex-start;
+  padding: var(--size-4-2) var(--size-4-3);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9em;
+  margin-bottom: var(--size-4-4);
+}
+
+.memochron-back-button:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--interactive-accent);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 600px) {
+  .memochron-base-colors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .memochron-enhanced-color-picker {
+    min-width: 280px;
+  }
+
+  .memochron-base-color-swatch {
+    width: 35px;
+    height: 35px;
+  }
+
+  .memochron-spectrum-container canvas {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.memochron-event-time {
+  color: var(--text-muted);
+  font-size: 0.85em;
+}
+
+.memochron-event-time.all-day {
+  color: var(--text-accent);
+  font-weight: 500;
+}
+
+.memochron-event-title {
+  margin: var(--memochron-padding-xs) 0;
+}
+
+.memochron-event-location {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+/* Settings */
+.memochron-calendar-list {
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  padding: var(--memochron-padding-sm);
+  margin: var(--memochron-padding-lg) 0;
+}
+
+.memochron-file-picker-date {
+  color: var(--text-muted);
+  display: block;
+  margin-top: var(--size-4-1);
+}
+
+.memochron-calendar-list .setting-item {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding: var(--memochron-padding-sm);
+}
+
+.memochron-calendar-list .setting-item:last-child {
+  border-bottom: none;
+}
+
+/* Improve calendar source settings layout */
+.memochron-calendar-list .setting-item {
+  min-height: auto;
+}
+
+.memochron-calendar-list .setting-item .setting-item-control {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--size-4-2);
+  align-items: flex-start;
+  min-height: 2.5rem;
+}
+
+.memochron-calendar-list .setting-item .setting-item-control > * {
+  margin: 0 !important;
+}
+
+/* URL input should be wider */
+.memochron-calendar-list .setting-item input[type="text"]:first-of-type {
+  min-width: 200px;
+  flex: 2;
+}
+
+/* Name input */
+.memochron-calendar-list .setting-item input[type="text"]:nth-of-type(2) {
+  min-width: 100px;
+  flex: 1;
+}
+
+/* Tags input */
+.memochron-calendar-list .setting-item input[type="text"]:nth-of-type(3) {
+  min-width: 80px;
+  flex: 1;
+}
+
+/* Color button styling */
+.memochron-color-button {
+  min-width: 85px;
+  flex-shrink: 0;
+}
+
+/* File picker button */
+.memochron-calendar-list .setting-item button[aria-label*="folder"] {
+  flex-shrink: 0;
+}
+
+/* Toggle and remove buttons */
+.memochron-calendar-list .setting-item .checkbox-container,
+.memochron-calendar-list .setting-item button:last-child {
+  flex-shrink: 0;
+}
+
+/* Force break to new line when needed */
+@media screen and (max-width: 1200px) {
+  .memochron-calendar-list .setting-item .setting-item-control {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .memochron-calendar-list .setting-item .setting-item-control > * {
+    width: 100%;
+    margin-bottom: var(--size-4-1) !important;
+  }
+
+  .memochron-calendar-list .setting-item input[type="text"] {
+    min-width: auto;
+  }
+}
+
+.memochron-setting-item-container {
+  position: relative;
+}
+
+.memochron-suggestion-container {
+  position: absolute;
+  z-index: 1000;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-s);
+  max-height: 200px;
+  overflow-y: auto;
+  width: var(--input-width);
+  top: 100%;
+  margin-top: 4px;
+  display: none; /* Hidden by default */
+}
+
+.memochron-suggestion-container.is-visible {
+  display: block; /* Show when class is applied */
+}
+
+.memochron-suggestion-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.memochron-suggestion-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.memochron-suggestion-list li:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* Template Preview */
+.memochron-template-preview {
+  margin-top: var(--memochron-padding-xs);
+}
+
+.memochron-preview-text {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.memochron-preview-error {
+  color: var(--text-error);
+  font-style: italic;
+}
+
+/* Mobile Specific Styles */
+@media screen and (max-width: 768px) {
+  .memochron-calendar-grid {
+    font-size: 0.9em;
+  }
+
+  .memochron-day {
+    min-height: 2.5rem;
+    padding: var(--memochron-padding-md);
+  }
+
+  .memochron-nav button {
+    padding: var(--memochron-padding-sm) var(--memochron-padding-md);
+    font-size: 1em;
+  }
+
+  .memochron-title {
+    font-size: 1em;
+  }
+
+  .memochron-agenda-event {
+    padding: var(--memochron-padding-md);
+  }
+
+  .memochron-event-time,
+  .memochron-event-location {
+    font-size: 0.9em;
+  }
+
+  /* Improve tap targets in settings */
+  .memochron-calendar-list .setting-item {
+    padding: var(--memochron-padding-md);
+  }
+
+  .setting-item-control input[type="text"],
+  .setting-item-control button {
+    min-height: 36px; /* Better touch targets */
+  }
+}
+
+/* Additional mobile optimizations for very small screens */
+@media screen and (max-width: 480px) {
+  .memochron-weekday {
+    font-size: 0.8em;
+    padding: var(--memochron-padding-xs);
+  }
+
+  .memochron-day-header {
+    font-size: 0.9em;
+  }
+
+  .memochron-controls {
+    padding: 0.35rem;
+  }
+
+  .memochron-nav-buttons {
+    gap: 0.35rem;
+  }
+
+  .memochron-title {
+    font-size: 0.9em;
+    margin: 0 0.35rem;
+  }
+}
+
+/* Calendar-specific notes settings styling */
+.memochron-calendar-notes-settings {
+  margin-top: var(--memochron-padding-sm);
+  padding: var(--memochron-padding-sm);
+  background: var(--background-secondary);
+  border-radius: var(--radius-s);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.memochron-calendar-notes-settings .setting-item {
+  margin-bottom: var(--memochron-padding-xs);
+}
+
+.memochron-custom-settings-indicator {
+  color: var(--interactive-accent);
+  font-weight: bold;
+}
+
+/* Calendar notes settings modal styling */
+.modal-content .setting-item {
+  margin-bottom: var(--memochron-padding-md);
+}
+
+.modal-content .setting-item-description {
+  margin-bottom: var(--memochron-padding-xs);
+}
