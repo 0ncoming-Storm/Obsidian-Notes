@@ -35,7 +35,8 @@
               "title": "Marketing Class Assignment 2 -- chapter 4"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -92,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "54dff48449e7b673",
@@ -206,9 +208,9 @@
   },
   "active": "ab5bf418024149a4",
   "lastOpenFiles": [
+    "Marketing/Marketing Notes.md",
     "Marketing/Marketing Class Assignment 2 -- chapter 4.md",
     "Marketing/Marketing Class Assignment 1 -- target markets.md",
-    "Marketing/Marketing Notes.md",
     "Main Database.base",
     "2025-09-19 - Marketing Fundamentals.md",
     "COMP",
