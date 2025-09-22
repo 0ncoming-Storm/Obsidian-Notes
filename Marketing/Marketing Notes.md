@@ -2,7 +2,7 @@
 
 *   **Product:** What an organization offers to its target market, including features, branding, packaging, and services.
 *   **Price:** The monetary value consumers exchange for acquiring the product or service. This includes list price, discounts, allowances, and payment terms.
-*   **Place (Distribution):** How the product reaches the consumer, encompassing channels, logistics, inventory, and coverage.
+*   **Place (Distribution):** How the product reaches the consumer, encompassing channels, logistics, inventory, and[[scratchpad]] coverage.
 *   **Promotion:** Activities undertaken to communicate the product's value and persuade customers to purchase. This includes advertising, public relations, sales promotion, and personal selling.
 
 ## Forms of Market Segmentation
