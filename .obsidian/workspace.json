@@ -39,13 +39,14 @@
             "id": "4cb2874216173f60",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "Main Database.base",
-                "viewName": "Table"
+                "file": "Marketing/assingments/Marketing Class Assignment 1 -- target markets.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-table",
-              "title": "Main Database"
+              "icon": "lucide-file",
+              "title": "Marketing Class Assignment 1 -- target markets"
             }
           }
         ],
@@ -210,17 +211,21 @@
   },
   "active": "4cb2874216173f60",
   "lastOpenFiles": [
-    "assingments/Marketing Class Assignment 2 -- chapter 4.md",
-    "assingments/Assignment 1 -- theoretical and trace.md",
-    "assingments",
-    "assinments",
-    "scratchpad.md",
-    "COMP/COMP Notes.md",
-    "Usefull stats.md",
-    "ENTER",
+    "Marketing/assingments/Marketing Class Assignment 2 -- chapter 4.md",
     "Marketing/Marketing Notes.md",
     "Main Database.base",
-    "assingments/Marketing Class Assignment 1 -- target markets.md",
+    "COMP/COMP Notes.md",
+    "Marketing/assingments/Marketing Class Assignment 1 -- target markets.md",
+    "COMP/assingments/Marketing Class Assignment 1 -- target markets.md",
+    "Marketing/assingments/Assignment 1 -- theoretical and trace.md",
+    "COMP/assingments/Marketing Class Assignment 2 -- chapter 4.md",
+    "COMP/assingments/Assignment 1 -- theoretical and trace.md",
+    "COMP/assingments",
+    "Marketing/assingments",
+    "assinments",
+    "scratchpad.md",
+    "Usefull stats.md",
+    "ENTER",
     "2025-09-19 - Marketing Fundamentals.md",
     "COMP",
     "Marketing",
@@ -233,7 +238,6 @@
     "Untitled 4.base",
     "Untitled 3.base",
     "Untitled 1.base",
-    "Untitled 2.base",
     "2025-08-24.md",
     "Welcome.md"
   ]
