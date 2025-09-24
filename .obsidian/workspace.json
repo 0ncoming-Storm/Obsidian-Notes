@@ -39,14 +39,13 @@
             "id": "4cb2874216173f60",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "COMP/Assignment 1 -- theoretical and trace.md",
-                "mode": "source",
-                "source": false
+                "file": "Main Database.base",
+                "viewName": "Table"
               },
-              "icon": "lucide-file",
-              "title": "Assignment 1 -- theoretical and trace"
+              "icon": "lucide-table",
+              "title": "Main Database"
             }
           }
         ],
@@ -107,8 +106,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "54dff48449e7b673",
@@ -212,15 +210,17 @@
   },
   "active": "4cb2874216173f60",
   "lastOpenFiles": [
+    "assingments/Marketing Class Assignment 2 -- chapter 4.md",
+    "assingments/Assignment 1 -- theoretical and trace.md",
+    "assingments",
+    "assinments",
     "scratchpad.md",
-    "COMP/Assignment 1 -- theoretical and trace.md",
     "COMP/COMP Notes.md",
     "Usefull stats.md",
     "ENTER",
     "Marketing/Marketing Notes.md",
     "Main Database.base",
-    "Marketing/Marketing Class Assignment 1 -- target markets.md",
-    "Marketing/Marketing Class Assignment 2 -- chapter 4.md",
+    "assingments/Marketing Class Assignment 1 -- target markets.md",
     "2025-09-19 - Marketing Fundamentals.md",
     "COMP",
     "Marketing",
