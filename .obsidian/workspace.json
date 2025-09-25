@@ -4,95 +4,39 @@
     "type": "split",
     "children": [
       {
-        "id": "185c7813673900e9",
+        "id": "daabc4350b2e1903",
         "type": "tabs",
         "children": [
           {
-            "id": "96af1b2153484708",
+            "id": "0c2a58cd8e64101f",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "scratchpad.md",
+                "file": "COMP/assingments/Assignment 1 -- theoretical and trace.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "scratchpad"
+              "title": "Assignment 1 -- theoretical and trace"
             }
           },
           {
-            "id": "b0cef17e1d0b82f3",
+            "id": "c58d01aa1a67cb4a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "ENTER/assingments/Workbook assingment.md",
+                "file": "COMP/assingments/Assignment 1 -- notes, comments, and references.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Workbook assingment"
-            }
-          },
-          {
-            "id": "2c6cb4766d3d85de",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "GNED 1101/1101 Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "1101 Notes"
-            }
-          },
-          {
-            "id": "61ef7062775d10f4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "ENTER/Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Notes"
-            }
-          },
-          {
-            "id": "3b3317466153c50b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "COMP/COMP Notes.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "COMP Notes"
-            }
-          },
-          {
-            "id": "4cb2874216173f60",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Marketing/assingments/Marketing Class Assignment 1 -- target markets.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Marketing Class Assignment 1 -- target markets"
+              "title": "Assignment 1 -- notes, comments, and references"
             }
           }
         ],
-        "currentTab": 3
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -213,23 +157,33 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "scratchpad.md",
+                "file": "COMP/assingments/Assignment 1 -- notes, comments, and references.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of scratchpad"
+              "title": "Outline of Assignment 1 -- notes, comments, and references"
             }
           },
           {
-            "id": "1a5dee863bde17a1",
+            "id": "b6a8b59b97ccda8c",
             "type": "leaf",
             "state": {
               "type": "git-view",
               "state": {},
               "icon": "git-pull-request",
               "title": "Source Control"
+            }
+          },
+          {
+            "id": "cfd15496357be6cd",
+            "type": "leaf",
+            "state": {
+              "type": "copilot-chat-view",
+              "state": {},
+              "icon": "message-square",
+              "title": "Copilot"
             }
           }
         ],
@@ -248,43 +202,49 @@
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "copilot:Open Copilot Chat": false
     }
   },
-  "active": "61ef7062775d10f4",
+  "active": "c58d01aa1a67cb4a",
   "lastOpenFiles": [
-    "GNED 1101/1101 Notes.md",
-    "ENTER/Notes.md",
+    "COMP/assingments/Assignment 1 -- theoretical and trace.pdf",
+    "COMP/assingments/Assignment 1 -- notes, comments, and references.md",
+    "COMP/assingments/Assignment 1 -- notes, comments, and references.pdf",
+    "Untitled.canvas",
+    "COMP/assingments/Assignment 1 -- theoretical and trace.md",
+    "COMP/COMP Notes.md",
+    "Usefull stats.md",
+    "Marketing/Marketing Notes.md",
     "ENTER/assingments/Workbook assingment.md",
-    "GNED 1101",
-    "scratchpad.md",
-    "ENTER/assingments",
+    "ENTER/assingments/graph.png",
+    "ENTER/Notes.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet thread.md",
+    "copilot/copilot-custom-prompts/Rewrite as tweet.md",
+    "copilot/copilot-custom-prompts/Remove URLs.md",
+    "copilot/copilot-custom-prompts/Generate glossary.md",
+    "copilot/copilot-custom-prompts/Generate table of contents.md",
+    "copilot/copilot-custom-prompts/Make longer.md",
+    "copilot/copilot-custom-prompts/Make shorter.md",
+    "copilot/copilot-custom-prompts/Emojify.md",
+    "copilot/copilot-custom-prompts/Explain like I am 5.md",
+    "copilot/copilot-custom-prompts/Simplify.md",
+    "copilot/copilot-custom-prompts/Summarize.md",
+    "copilot/copilot-custom-prompts/Translate to Chinese.md",
+    "copilot/copilot-custom-prompts/Fix grammar and spelling.md",
+    "copilot/copilot-custom-prompts",
+    "copilot",
     "Marketing/assingments/Marketing Class Assignment 1 -- target markets.md",
+    "scratchpad.md",
+    "GNED 1101/1101 Notes.md",
+    "GNED 1101",
+    "ENTER/assingments",
     "README.md",
     "Marketing/assingments/Marketing Class Assignment 2 -- chapter 4.md",
-    "Marketing/Marketing Notes.md",
     "Main Database.base",
-    "COMP/COMP Notes.md",
-    "COMP/assingments/Marketing Class Assignment 1 -- target markets.md",
-    "Marketing/assingments/Assignment 1 -- theoretical and trace.md",
-    "COMP/assingments/Marketing Class Assignment 2 -- chapter 4.md",
-    "COMP/assingments/Assignment 1 -- theoretical and trace.md",
     "COMP/assingments",
     "Marketing/assingments",
     "assinments",
-    "Usefull stats.md",
-    "ENTER",
-    "2025-09-19 - Marketing Fundamentals.md",
-    "COMP",
-    "Marketing",
-    "2025-09-19.md",
-    "email, name.md",
-    "Math adventures.md",
-    "Untitled 1.canvas",
-    "Untitled.canvas",
-    "Packing List.md",
-    "Untitled 4.base",
-    "2025-08-24.md",
-    "Welcome.md"
+    "Untitled 1.canvas"
   ]
 }
